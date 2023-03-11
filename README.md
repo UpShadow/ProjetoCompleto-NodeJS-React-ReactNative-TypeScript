@@ -17,3 +17,6 @@
 - React - Sistema Projeto Pizzaria
 - React Native - Criando aplicativos
 - App Projeto Pizzaria
+
+##
+![CalculoIMC](https://user-images.githubusercontent.com/88904256/224512626-c000f0f8-e7fb-46e2-9054-d52c6029b525.png)
