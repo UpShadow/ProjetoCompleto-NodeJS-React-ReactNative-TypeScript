@@ -635,11 +635,58 @@ Entre 25 e 29,99 Acima do peso
 //###################################################################################################################################################################################
 //CONHECENDO FUNÇÕES ANÔNIMAS
 
+/*  
+    () => {}
+    1 - Os parênteses, que é por onde a função recebe os argumentos (assim como nas funções tradicionais).
+    2 - "seta" => - responsavel pelo nome "arrow"
+    3 - E as chaves: o bloco de código que representa o corpo da função.
+*/
 
+// function somar(a, b){ // função tradicional, não vamos parar de usar, pois as funções anonimas tem seus momentos
+//     let total = a + b;
+//     return console.log(total);
+// }
 
+// somar(10, 30);
+
+// let subtrair = (valor1, valor2) => { // função anônima
+//     let total = valor1 - valor2;
+//     console.log(total);
+// }
+
+// subtrair(60, 30);
+
+// let numeros = [1, 3, 5, 10];
+
+// numeros.map((item) => {
+//     // aqui vai toda a logica do nosso map
+//     console.log(item);
+// });
 //###################################################################################################################################################################################
 
 //###################################################################################################################################################################################
 //USANDO INCLUDES ENDSWITH, STARTSWITH
 
+// includes verifica dentro de um array, se possui o valor.
+//startswith verifica se começa com alguma coisa.
+//endswith verifica se termina com alguma coisa.
+// esses metodos evitam percorrer um array gigante para simplesmente fazer comparações simples como essas.
+ 
+// Includes é case-sensitive
+// let nomes = ["Carlos", "Lucas", "Jose"];
+// console.log(nomes.includes("Carlos")); // return true, sempre retorna um boolean, true para encontrou, false para não encontrou
+
+// if(nomes.includes("Jose")) {
+//     console.log("Está na lista");
+// }
+// else {
+//     console.log("Não está na lista");
+// }
+
+// startswith
+// let nome = "Matheus";
+
+// console.log(nome.startsWith("s")); // retorna false pq não começa com s
+
+// console.log(nome.endsWith("eus")); // retorna true pq termina com ues
 //###################################################################################################################################################################################
