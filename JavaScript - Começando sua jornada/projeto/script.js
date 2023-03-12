@@ -1,3 +1,4 @@
+//Seção 2: JavaScript - Começando sua jornada
 //###################################################################################################################################################################################
 //ENTENDO JAVASCRIPT
 
@@ -300,37 +301,345 @@ Entre 25 e 29,99 Acima do peso
 
 // peso / (altura * altura);
 
-var peso;
-var altura;
-var imc;
-var resultado;
+// var peso;
+// var altura;
+// var imc;
+// var resultado;
 
-function calcularIMC(event) { // Índice de massa corporal
-    event.preventDefault(); // Cancela o evento se for cancelado, sem parar a propagação do mesmo. nesse caso cancela o recarregamento da pagina pois a programação interpreta como o envio de um formulário e por padrão recarrega.
+// function calcularIMC(event) { // Índice de massa corporal
+//     event.preventDefault(); // Cancela o evento se for cancelado, sem parar a propagação do mesmo. nesse caso cancela o recarregamento da pagina pois a programação interpreta como o envio de um formulário e por padrão recarrega.
     
-    peso = document.getElementById('peso').value; // pegando la do document um elemento pelo seu id, esse id peso foi declarado la no index.html
-    altura = document.getElementById('altura').value;
-    console.log(peso);
-    console.log(altura);
+//     peso = document.getElementById('peso').value; // pegando la do document um elemento pelo seu id, esse id peso foi declarado la no index.html
+//     altura = document.getElementById('altura').value;
+//     console.log(peso);
+//     console.log(altura);
 
-    imc = peso / (altura * altura);
-    console.log(imc);
+//     imc = peso / (altura * altura);
+//     console.log(imc);
 
-    resultado = document.getElementById('resultado');
-    if(imc < 17) {
-        resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Cuidado você está muito abaixo do peso!'; //O método toFixed() formata um número utilizando notação de ponto fixo.
-    } else if(imc > 17 && imc <= 18.49) {
-        resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Você está abaixo do peso!';
-    } else if(imc >= 18.5 && imc <= 24.99) {
-        resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Você está no peso ideal!';
-    } else if(imc > 25 && imc <= 29.99) {
-        resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Você está acima do peso!';
-    } else if(imc >= 30) {
-        resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Cuidado Obsidade!';
-    }
+//     resultado = document.getElementById('resultado');
+//     if(imc < 17) {
+//         resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Cuidado você está muito abaixo do peso!'; //O método toFixed() formata um número utilizando notação de ponto fixo.
+//     } else if(imc > 17 && imc <= 18.49) {
+//         resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Você está abaixo do peso!';
+//     } else if(imc >= 18.5 && imc <= 24.99) {
+//         resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Você está no peso ideal!';
+//     } else if(imc > 25 && imc <= 29.99) {
+//         resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Você está acima do peso!';
+//     } else if(imc >= 30) {
+//         resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Cuidado Obsidade!';
+//     }
 
-    // Limpando os campos após o calculo
-    document.getElementById('peso').value = '';
-    document.getElementById('altura').value = '';
-}
+//     // Limpando os campos após o calculo
+//     document.getElementById('peso').value = '';
+//     document.getElementById('altura').value = '';
+// }
+//###################################################################################################################################################################################
+
+//Seção 3: JavaScript - Avançando
+//###################################################################################################################################################################################
+//ENTENDENDO TEMPORIZADORES
+
+// setInterval - executa de tempos em tempos infinitamente
+
+// function acao() {
+//     document.write("Executando... <br/>");
+// }
+// setInterval(acao, 1000);
+
+// var timer = setInterval(() => { //função anonima então a gente pode escrever aqui a função
+//     document.write("Executando!!! <br/>");
+// }, 1000)
+//consigo pausar o setInterval? sim associando ele a uma variavel
+// clearInterval(timer); com esse clear a gente para o Interval
+
+// setTimeout - executa apenas uma vez aquilo que você passar
+
+// setTimeout(() => {
+//     console.log("EXECUTOU NOSSO TIMEOUT")
+// }, 3000);
+
+// Então baiscamente é essa a diferença entre o setInterval e o setTimeout, setInterval executa infinitas vezes e o setTimeout apenas uma unica vez.
+// com o setInterval podemos criar relogio, cronometro, etc...
+//###################################################################################################################################################################################
+
+//###################################################################################################################################################################################
+//DIFERENÇA ENTRE VAR, LET E CONST
+
+//um comentario a mais sobre o operador na comparação
+//quando você utiliza o operador == , a linguagem faz o cast ou conversão de tipos para comparação dos valores. 
+//Já o operador === diz para comparar os tipos de dados e valores que estão sendo testados.
+// var nome = "Sujeito"; 
+
+// if(nome === "Sujeito") {
+//     var curso = "Programador Frontend";
+//     console.log(curso);
+//     let cargo = "CEO - Sujeito Programador";
+//     console.log(cargo);
+// }
+
+// nos conseguimos ter acesso a essa variavel curso mesmo ela tendo sido criada dentro do if
+// e existem situações  em que a gente não quer que qualquer um tenha acesso a variavel por exemplo um salario, um saldo de conta
+// mas isso já não acontece com a nossa variavel cargo que foi definida com let, caso tentemos acessar fora do if retorna: cargo is not defined
+
+// let bonus = true;
+
+// if(bonus) {
+//     let salario = 4000 + 600;
+//     console.log(salario);
+// }
+
+// let possui escopo de bloco, portanto sempre que criamos dentro de um if, função, condição a gente apenas tem acesso a ele dentro do bloco desse escopo
+// já o var possui escopo global
+
+// const tambem possui escopo de bloco, porem por ser uma constante após você criar ela, não é possivel mais alterar seu valor
+// const é imutavel
+
+// const cargo = "Programador Front end";
+// console.log(cargo);
+// cargo = "Programador Mobile"; // retorna um erro: Uncaught TypeError: Assignment to constant variable. pois não é possivel alterar uma const.
+// // e também não é possivel criar uma constant sem dar a ela um valor exemplo const sobrenome;
+// const sobrenome = "Eduardo"; // assim pode pois já estamos atribuindo valor
+// e lembrando que é escopo de bloco igual a let, então só é possivel acessar dentro do bloco, if, função, etc...
+
+//###################################################################################################################################################################################
+
+//###################################################################################################################################################################################
+//OBJETOS
+
+// let lista = [123, 4, 'Carlos'];
+// console.log(lista);
+
+// Objeto é uma variavel do tipo objeto
+
+// let pessoa = {
+//     nome: 'Carlos',
+//     idade: '22',
+//     altura: '1.76',
+//     cargo: "Programador FullStack"
+// };
+// console.log(pessoa);
+// Para ter acessoa apenas a uma informação dessa pesosa fazemos assim:
+// console.log(pessoa.nome);
+// console.log(pessoa.cargo);
+
+// let carro = {
+//     nome: 'Golf 1.6',
+//     cor: 'Branco',
+//     potencia: '140cv'
+// }
+// console.log(carro);
+// Acessando os dados do carro:
+// console.log(carro.potencia);
+// console.log(carro.nome);
+
+//podemos ter lista com objetos
+// Lista de Objetos
+
+// let usuarios = [
+//     {nome: "Carlos", cargo: "Programador", status: "ATIVO"},
+//     {nome: "Natalia", cargo: "Farmacêutica", status: "ATIVO"},
+//     {nome: "Maria", cargo: "Vendedora", status: "FORA DE SERVIÇO"}
+// ];
+// console.log(usuarios);
+// E agora navegando numa lista de objeto
+// console.log(usuarios[0]); 
+// console.log(usuarios[1].nome);
+// console.log(usuarios[1].cargo);
+
+//###################################################################################################################################################################################
+
+//###################################################################################################################################################################################
+//VARIAVEIS DENTRO DE STRING
+
+// Template strings
+// let nome = "Carlos";
+// let sobrenome = "Eduardo";
+// let idade = "22";
+
+//  let mensagem = "Meu nome é " + nome + " " + sobrenome + " e eu tenho " + idade + " anos de idade"; // assim é muito ruim de concatenar tudo
+
+//precisa ser com crase ``
+// let mensagem1 = `Meu nome é ${nome} ${sobrenome} e eu tenho ${idade} anos de idade`; // olha como essa maneira é muito melhor, facil e mais legivel
+// let mensagem2 = `Teste mensagem ${nome}`;
+// console.log(mensagem1);
+
+//###################################################################################################################################################################################
+
+//###################################################################################################################################################################################
+//DESCONSTRUINDO ARRAY
+
+// desconstruir um objeto
+
+// let pessoa = {
+//     nome: "Carlos",
+//     sobrenome: "Eduardo",
+//     empresa: "Sujeito Programador",
+//     cargo: "Programador Fullstack"
+// }
+
+// console.log(pessoa.nome);
+// console.log(pessoa.cargo);
+
+// let nome = "TESTE" // declarei essa variavel aqui para mostrar alterando o nome da propriedade do objeto pessoa que tbm é nome.
+
+// const { nome:nomePessoa, cargo, empresa, sobrenome } = pessoa; //desconstruindo pessoa, é como se ele criasse uma const nome e cargo e colocasse os atributos do objeto pessoa.
+
+// console.log(nomePessoa);
+// console.log(sobrenome);
+// console.log(empresa);
+// console.log(cargo);
+
+// ======================
+
+// Desconstruir um array
+           //   0          1         2
+// let nomes = ["Carlos", "Natalia", "Maria"];
+
+// let { 0:carlos, 2:terceiraPessoa} = nomes;
+
+// console.log(carlos); // retorna Carlos
+// console.log(terceiraPessoa); // retorna Maria
+
+// a outra maneira tbm de descontruir array que é por posição
+// let [primeironome, segundonome] = nomes;
+// console.log(primeironome);
+// console.log(segundonome);
+//###################################################################################################################################################################################
+
+//###################################################################################################################################################################################
+//CONHECENDO SPREAD OPERATOR
+
+// let primeiros = [1, 2, 3];
+// let numeros = [4, 5 , 6]; exemplo que comentado
+// e se eu quiser juntar o primeiro com o segundo?
+// seria só colocar assim: let numeros = [primeiros, 4, 5 , 6]; não pois isso retornaria um array dentro de um array e não a sequencia como gostariamos
+// é ai que entra o spread operator
+// let numeros = [...primeiros, 4, 5 , 6];
+// console.log(numeros);
+
+// outro exemplo
+// let pessoa = {
+//     nome: "Matheus",
+//     idade: 45,
+//     cargo: "RH"
+// }
+
+// let novaPessoa = {
+//     ...pessoa, // usando spread operator para juntar os dados
+//     status: "ATIVO",
+//     cidade: "Teodoro Sampaio / SP",
+//     telefone: "18981145021"
+// }
+// console.log(novaPessoa);
+
+// outro exemplo
+// function novoUsuario(info) {
+//     let dados = {
+//         ...info, // spread operator para pegar as informações
+//         status: "ATIVO",
+//         iniciando: "12/03/2023",
+//         codigo: "123123"
+//     };
+//     console.log(dados);
+// }
+
+// novoUsuario({nome: "Jose", sobrenome: "Silva", cargo: "DEV"})
+//###################################################################################################################################################################################
+
+//###################################################################################################################################################################################
+//REST OPERATOR
+
+// é bem parecido com o spread operator porem mais voltado para funções
+// ajuda quando você não sabe a quantidade de parametros que você precisa receber
+
+// function convidados(...nomes) { // rest operator é parecido com o spread, porem é de função, ele recebe tudo e trata como uma lista
+//     console.log("SEJA BEM VINDO TODOS CONVIDADOS");
+//     console.log(nomes);
+// }
+
+// convidados("Matheus", "Lucas", "Maria", "Ana caroline");
+
+// Vamos criar um sorteador de número
+
+// function sorteador(...numeros) { // rest operator ...numeros
+//     console.log(numeros);
+
+//     // Math é um objeto embutido que tem propriedades e métodos para constantes e funções matemáticas. Não é um objeto de função.
+//     //Math.floor garante que será um número inteiro, return integer
+//     const numeroGerado = Math.floor(Math.random() * numeros.length);
+//     console.log("Numero gerado foi: " + numeros[numeroGerado]);
+// }
+
+// sorteador(1, 4, 5, 15, 25, 90, 55, 34);
+//###################################################################################################################################################################################
+
+//###################################################################################################################################################################################
+//OPERAÇÃO EM UMA LISTA pt1
+
+// MAP = PERCORRER TODO UM ARRAY.
+
+// let lista = ["Carlos", "Natalia", "Maria", "Luiz"];
+
+// lista.map((value, index) => {
+//     console.log(`Passando: ${value} - Está na posição: ${index}`);
+// });
+
+// REDUCE = O reduce busca reduzir um array.
+
+// let numeros = [5, 3, 2, 5];
+
+// let total = numeros.reduce((acumulador, numero, indice, original) => { 
+//     console.log(`${acumulador} - total até o momento`);
+//     console.log(`${numero} - valor atual`);
+//     console.log(`${indice} - indice/posição atual`);
+//     console.log(`${original} - array original`);
+//     console.log("==============================");
+
+//     return acumulador += numero;
+// });
+
+// console.log(`Total do reduce: ${total}`);
+//###################################################################################################################################################################################
+
+//###################################################################################################################################################################################
+//OPERAÇÃO EM UMA LISTA pt2
+
+// FIND = busca alguma coisa, verifica se existe no array, retorna o primeiro item que encontrar.
+
+// let listagem = [5, 3, "Natalia", 2, "Carlos"];
+
+// let busca = listagem.find((item) => {
+//     //return item === "Natalia"; // retorna Natalia
+//     //return item === "Pedro"; //  retorna undefined, pois não foi encontrado.
+
+//     if(item === "Natalia") {
+//         return console.log("Item encontrado com sucesso");
+//     }
+// });
+
+// console.log(busca);
+
+// FILTER = filtra alguma coisa dentro de um array, retorna tudo que for filtrado não apenas o primeiro encontrado
+
+// let palavras = ["Carlos", "Natalia", "Jose", "Maria", "Cadu", "Luiz", "Jose"];
+
+// let filtro = palavras.filter((value) => {
+//     // return value.length <= 4;
+//     return value === "Jose";
+// });
+
+// console.log(filtro); // retorna ['Cadu', 'Luiz']
+//###################################################################################################################################################################################
+
+//###################################################################################################################################################################################
+//CONHECENDO FUNÇÕES ANÔNIMAS
+
+
+
+//###################################################################################################################################################################################
+
+//###################################################################################################################################################################################
+//USANDO INCLUDES ENDSWITH, STARTSWITH
+
 //###################################################################################################################################################################################
