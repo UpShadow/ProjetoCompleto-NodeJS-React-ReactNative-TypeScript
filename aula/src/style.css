@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    height: 60px;
+    width: 100%;
+    background-color: #4c89e3;
+    color: #FFF;
+}
+
+.post {
+    display: flex;
+    flex-direction: column; /*  direção um item abaixo do outro em formato de coluna(column) */
+    justify-content: center; /*  conteudos centralizado */
+    width: 700px; /*  largura de todos os posts é de 700px */
+    background-color: #FFF; /*  cor de fundo branco */
+    border-radius: 7px; /*  raio da borda */
+    border-width: 1px; /* tamanho da borda */
+    margin: 8px; /* Margem externa */
+    padding: 10px; /* Espaçamento interno */
+}
+
+.titulo {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.subtitulo {
+    margin: 5px;
+}
+
+.botao {
+    height: 40px;
+    background: none;
+    border-radius: 5px;
+    color: #4c89e3;
+    border: 2px solid #4c89e3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+
+.botao:hover {
+    background-color: #4c89e3;
+    color: #FFF;
+}

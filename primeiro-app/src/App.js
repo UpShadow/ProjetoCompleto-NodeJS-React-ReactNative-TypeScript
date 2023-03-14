@@ -1,49 +1,59 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  //Declarando os estados
-  const [nome, setNome] = useState(''); // useState sendo um texto
-  const [email, setEmail] = useState('');
-  const [idade, setIdade] = useState('');  
+  const [input, setInput] = useState('');
+  const [tarefa, setTarefas] = useState([
+    'Pagar a conta de luz',
+    'Estudar React JS'
+  ]);
 
-  const[user, setUser] = useState({}); // useState sendo um objeto
+  useEffect(() => {
+    const tarefaStorage = localStorage.getItem('@tarefa'); //Busco no localStore pelos itens cadastrados
 
-  // exemplo do useState sendo um array: const[usuarios, setUsuarios] =  useState([]); esse array pode começar preenchido tambem.
-  // exemplo do useState sendo um numero: const [idade, setIdade] = useState(0); 
+    if(tarefaStorage) { // caso tenha algum item no localStorege
+      setTarefas(JSON.parse(tarefaStorage)); // jogo do localStorage para o tarafas pelo setTarefas, mas preciso converter de volta em array, pois na hora de jogar pro localStorage eu converti em string
+    }
+    
+  }, []);
+
+  // useEffect com o [] vazio ele é sempre chamado após a aplicação ser carregada por completo, então ele é a ultima coisa executada.
+  // com [tarefa] dentro, ele é executado sempre que ocorrer uma alteração em tarefa, como se tarefa fosse o gatilho de execução do useEffect
+  useEffect(() => {
+    localStorage.setItem('@tarefa', JSON.stringify(tarefa)) //A propriedade localStorage permite acessar um objeto Storage local.
+  }, [tarefa]);  
 
   function handleRegister(e) {
     e.preventDefault(); // previne de atualizar o formulario, e os dados sumirem
-    
-    alert('Usuario registrado com sucesso!');
-    setUser({ //objeto user
-      nome: nome,
-      idade: idade,
-      email: email
-    })
+
+    //...tarefa é spread operator
+    setTarefas([...tarefa, input]);
+    setInput('');
   }
 
   return(
     <div>
-      <h1>Cadastrando usuario</h1>
+      <h1>Cadastrando tarefa</h1>
 
       <form onSubmit={handleRegister}>
-        <label>Nome da tarefa</label> <br/>
+        <label>Nome da tarefa:</label> <br/>
         <input 
-          placeholder="Digite seu nome" //Mensagem exibida no input quando está vazio
-          value={nome} //valor que eu tenho dentro do input
-          // esse "e" dentro da função anonima é abreviação de event
-          onChange={ (e) => setNome(e.target.value)}
-        /> <br/>
+          placeholder="Digite uma tarefa"
+          value={input}
+          onChange={ (e) => setInput(e.target.value)}
+        /> <br/> <br/>
         <button type="submit">Registrar</button>
       </form>
 
       <br/><br/>
 
-      <div>
-        <span>Bem vindo: {user.nome}</span> <br/>
-        <span>Idade: {user.idade}</span> <br/>
-        <span>Email: {user.email}</span> <br/>
-      </div>
+      <ul>
+        {/* essa é a estrutura desse map {tarefa.map( tarefa => () )}  */}
+        {/* esta sendo usada () direto ao invez de uma chamada de função pois queremos retornar um html/jsx direto na tela */}
+        {tarefa.map( tarefa => ( // Usando map para percorrer nosso array de tarefas
+          // nota que dentro do li ela possui a prop key, isso é necessario para que não retorne um erro, pois o react precisa de uma key para cada elemento da tabela
+          <li key={tarefa}>{tarefa}</li>
+        ))} 
+      </ul>
     </div>
   );
 }
