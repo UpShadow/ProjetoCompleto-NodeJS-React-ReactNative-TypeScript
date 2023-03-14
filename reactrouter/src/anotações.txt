@@ -1,0 +1,23 @@
+Primeiro nesse projeto retirei os arquivos do src que não seriam utilizados deixei apenas: App.js, Index.js e index.css
+Limpei todo conteudo de dentro da div em App.js deixei vazio
+E escrevi isso no css: 
+* { /* resetando css, para que fique sem nenhum estilo pre-definido */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+Agora vamos instalar a biblioteca de rotas: npm install react-router-dom
+Vamos criar a nossa pagina home que não será mais o App.js igual nos exemplos anteriores que eram mais simples
+Crie em src um new folder: pages e dentro de pages outro new folder: Home esse home deve ser com H maiusculo pois será um componente
+e componente sempre com a primeira maiuscula e dentro de Home crie index.js
+Esse passo de criar home criar folder foi todo o passo a passo de organização de criar um coomponente, faça o mesmo criando o componente
+Sobre, reactrouter\src\pages\Sobre
+
+Criar o routes.js dentro de src 
+Depois de montado o routes devemos chamar ele no App.js : import RoutesApp from "./routes";
+e dentro do return ( chamar o component )
