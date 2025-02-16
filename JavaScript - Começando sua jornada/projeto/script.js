@@ -152,7 +152,7 @@
 //TRABALHANDO COM ARRAYS
 
 // var lista = ['Carlos', 'Natalia', 'Maria', 2023]; //criado uma lista(array) com alguns dados
-// console.log(lista); //retora no console toda a estrutura da lista
+// console.log(lista); //retorna no console toda a estrutura da lista
 // console.log(lista[1]); // retorna o elemento da posição 1 da lista
 // console.log(lista.length); // retorna o tamanho da lista, isso é baseado na quatidade de itens dentro da lista
 
